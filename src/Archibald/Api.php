@@ -2,8 +2,6 @@
 
 namespace Archibald;
 
-use Archibald\Request;
-
 class Api
 {
 	private $slashToken = '';
@@ -28,7 +26,7 @@ class Api
 						'body'      => $request['text']
 					);
 
-					$request = new Request($data);
+					$this->executeRequest($data);
 				}
 				else {
 					echo 'Invalid Command';
@@ -51,5 +49,16 @@ class Api
 	private function isValidCommand($command)
 	{
 		return $command == $this->commandName;
+	}
+
+	private function executeRequest($data)
+	{
+		if (!empty($_GET['service']) && $_GET['service'] == 'giphy')
+		{
+			$request = new \Archibald\Request\Giphy($data);
+		}
+		else {
+			$request = new \Archibald\Request($data);
+		}
 	}
 }

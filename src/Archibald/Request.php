@@ -6,17 +6,17 @@ use GuzzleHttp\Client;
 
 class Request
 {
-	private $webhookUrl;
+	protected $webhookUrl;
 
-	private $body;
-	private $channel;
-	private $user;
+	protected $body;
+	protected $channel;
+	protected $user;
 
-	private $requestGifs = 'http://replygif.net/api/gifs';
-	private $requestTags = 'http://replygif.net/api/tags';
-	private $apiKey = '39YAprx5Yi';
+	protected $requestGifs = 'http://replygif.net/api/gifs';
+	protected $requestTags = 'http://replygif.net/api/tags';
+	protected $apiKey = '39YAprx5Yi';
 
-	private $client;
+	protected $client;
 
 	public function __construct($request)
 	{
